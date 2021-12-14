@@ -1,0 +1,4 @@
+el usuario es admin@gmail.com
+contrasena: admin
+
+.env.local  tiene las conexiones al api

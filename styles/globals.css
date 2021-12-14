@@ -1,16 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+main {
+  width: 100%;
+}
+
+.homelogin {
+  width: 100%;
+  display: flex;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  width: 100%;
+  padding: 0 3vw;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  margin: 2px;
+}
+
+table {
+  margin: 20px 3vw;
+}
+
+thead {
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+td {
+  max-width: 150px;
+  overflow: auto;
+}
+thead td {
+  padding: 10px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  font-weight: 400;
+  margin: 2px;
+}
+
+input {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(50, 50, 70);
+  font-weight: 400;
+  font-size: large;
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid;
+}
+
+label {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(50, 50, 70);
+  font-weight: 500;
+}
+
+.viewport {
+  display: flex;
+}
+
+/* navbar */
+.navbar {
+  background-color: black;
+  min-width: 20vh;
+  max-width: 30vh;
+  display: inline-grid;
+  align-content: space-between;
+  height: 100vh;
+  position: sticky;
+  top: 0px;
+  color: white;
+}
+
+.navbar p {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.navbar .navlinks {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+.navbar .navlinks li {
+  margin-top: 2vh;
+}
+
+.navbar .navlinks li:hover,
+.navbarinfo h3:hover {
+  color: aquamarine;
+}
+
+.navbar .navbarinfo {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+/* logo */
+.logo {
+  font-family: "Playfair Display", serif;
+  color: white;
+  text-align: center;
+  font-size: 45px;
+}
+
+/* login */
+
+.login {
+  margin: auto;
+  margin-top: 30vh;
+}
+
+.form .errors {
+  margin-top: 0;
+  color: rgb(251, 107, 107);
+  margin-left: 5%;
+}
+
+/* informacon de usuario */
+.userinfo {
+  padding: 0 10%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr;
+}
+.userinfo div {
+  padding-left: 3vw;
+  border: 2px solid black;
+}
+
+.userinfo .usertitle {
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid white;
+}
+/* Botones */
+.buttonLine {
+  margin: auto;
+  margin-top: 3vh;
+  width: fit-content;
+  height: fit-content;
+  background: white;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.ingresar,
+.crear {
+  background-color: black;
+  border-color: black;
+  color: white;
+  height: 40px;
+  min-width: 200px;
+  transform: translate(-3px, -3px);
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.createform {
+  margin: 0 4vw;
+}
+/* form */
+@media only screen and (min-width: 800px) {
+  .createform {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 4vw;
+  }
+}
+
+.contador {
+  width: 3em;
 }
