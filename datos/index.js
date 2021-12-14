@@ -138,6 +138,11 @@ export const clotheDatos = {
       type: "text",
     },
     {
+      label: "Foto",
+      name: "photography",
+      type: "text",
+    },
+    {
       label: "Disp.",
       name: "availability",
       type: "text",
@@ -147,14 +152,40 @@ export const clotheDatos = {
       name: "price",
       type: "number",
     },
+
     {
       label: "Cantidad",
       name: "quantity",
       type: "number",
     },
+  ],
+};
+
+export const orderCoordDatos = {
+  inputs: [
     {
-      label: "Foto",
-      name: "photography",
+      label: "Orden Id",
+      name: "id",
+      type: "text",
+    },
+    {
+      label: "Fecha",
+      name: "registerDay",
+      type: "text",
+    },
+    {
+      label: "Estado",
+      name: "status",
+      type: "text",
+    },
+    {
+      label: "Nombre",
+      name: "salesMan.name",
+      type: "text",
+    },
+    {
+      label: "Cant. REf",
+      name: "products",
       type: "text",
     },
   ],

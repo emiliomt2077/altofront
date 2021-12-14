@@ -22,6 +22,7 @@ function Anadir(data) {
       ></input>
 
       <button
+        className="boton botonanadir"
         type="button"
         onClick={() => {
           products[item.reference] = item;

@@ -27,7 +27,7 @@ function ClotheCRUD() {
   // if (user)
   //   if (user.data.type) {
   return (
-    <div>
+    <div className="principalcrud">
       {recargarTabla && <h2>cargando...</h2>}
       {recargarTabla == false && (
         <TableOrder

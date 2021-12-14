@@ -16,7 +16,7 @@ function UpdateItem(items) {
   if (view) {
     return (
       <div>
-        <h3>Actualizar</h3>
+        <h2>Actualizar</h2>
 
         <form className="updateform">
           {titulos.inputs.map((input, key) => {

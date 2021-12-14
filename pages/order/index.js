@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { DataContext } from "../../components/DataContext";
+import TableCoord from "../../components/TableCoord";
+import { orderCoordDatos } from "../../datos";
 
-function clothe() {
-  return (
-    <div>
-      <h1>hola clothe</h1>
-    </div>
+export async function getList() {
+  const zona = "ZONA 2";
+  return fetch(`${process.env.NEXT_PUBLIC_HOST}/order/zona/${zona}`).then(
+    (data) => data.json().then({ data })
   );
 }
 
-export default clothe;
+function OrderList() {
+  const { user } = useContext(DataContext);
+
+  const [recargarTabla, setRecargarTabla] = useState(false);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    getList().then((data) => {
+      setList(data);
+    });
+    setTimeout(() => {
+      setRecargarTabla(false);
+    }, 800);
+  }, [recargarTabla]);
+
+  // if (user)
+  //   if (user.data.type) {
+  return (
+    <div className="principalcrud">
+      {recargarTabla && <h2>cargando...</h2>}
+      {recargarTabla == false && (
+        <TableCoord lista={list} titulos={orderCoordDatos} tipo="Pedidos" />
+      )}
+    </div>
+  );
+  //  }
+  //return null;
+}
+
+export default OrderList;

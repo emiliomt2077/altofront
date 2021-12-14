@@ -15,13 +15,13 @@ function Eliminar(data) {
   const { set } = data;
   return (
     <button
-      className="boton eliminar"
+      className="boton botoneliminar"
       onClick={() => {
         deleteItem(data);
         set(true);
       }}
     >
-      eliminar
+      Eliminar
     </button>
   );
 }

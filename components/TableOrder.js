@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import Anadir from "./botones/Anadir";
+import CrearOrden from "./botones/CrearOrden";
 import EliminarOrden from "./botones/EliminarOrden";
 import { DataContext } from "./DataContext";
 
 const dataOrder = {
-  id: null,
+  id: 11,
   registerDay: null,
   status: "Pendiente",
   salesMan: null,
@@ -13,20 +14,30 @@ const dataOrder = {
 };
 
 function TableOrder(lists) {
-  // const { user } = useContext(DataContext);
+  const { user } = useContext(DataContext);
   const { lista } = lists;
   const { titulos } = lists;
 
-  // dataOrder.salesMan = user.data;
+  dataOrder.salesMan = user.data;
 
   const [click, setClick] = useState(false);
   const [onview, setOnview] = useState(null);
+  const [reload, setReload] = useState(null);
+  const longitud = Object.keys(dataOrder.products).length;
 
   useEffect(() => {
     setTimeout(() => {
       setClick(false);
     }, 80);
   }, [click]);
+
+  useEffect(() => {
+    if (reload) {
+      setTimeout(() => {
+        setReload(false);
+      }, 80);
+    }
+  }, [reload]);
 
   return (
     <>
@@ -64,7 +75,7 @@ function TableOrder(lists) {
         </tbody>
       </table>
 
-      {onview && (
+      {onview && longitud && (
         <div>
           <h2>lista de pedido</h2>
           <table>
@@ -88,12 +99,17 @@ function TableOrder(lists) {
                     <td>{dataOrder.products[fila].availability.toString()}</td>
                     <td>{dataOrder.products[fila].quantity}</td>
                     <td>{dataOrder.quantities[fila]}</td>
-                    <EliminarOrden objkey={fila} data={dataOrder} />
+                    <EliminarOrden
+                      objkey={fila}
+                      data={dataOrder}
+                      set={setReload}
+                    />
                   </tr>
                 );
               })}
             </tbody>
           </table>
+          <CrearOrden order={dataOrder} set={setReload} />
         </div>
       )}
     </>

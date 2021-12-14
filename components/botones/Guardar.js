@@ -22,7 +22,7 @@ function Guardar(datas) {
   return (
     <button
       type="button"
-      className="boton guardar"
+      className="boton botonguardar"
       onClick={() => updateItem(datas)}
     >
       Guardar

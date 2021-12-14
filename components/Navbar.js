@@ -36,6 +36,11 @@ const Navbar = () => {
                 <a>orden quitar</a>
               </Link>
             </li>
+            <li>
+              <Link href="/order">
+                <a>orden</a>
+              </Link>
+            </li>
           </ul>
         );
       case "COORD":

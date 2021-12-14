@@ -49,7 +49,8 @@ h3 {
 }
 
 table {
-  margin: 20px 3vw;
+  margin: 20px auto;
+  padding: 0 3vw;
 }
 
 thead {
@@ -69,6 +70,10 @@ thead td {
   padding: 10px;
 }
 
+tr td {
+  padding-left: 5px;
+}
+
 p {
   font-family: "Open Sans", sans-serif;
   color: black;
@@ -86,6 +91,12 @@ input {
   border: 1px solid;
 }
 
+button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  border: 1px solid black;
+  cursor: pointer;
+}
 label {
   font-family: "Open Sans", sans-serif;
   color: rgb(50, 50, 70);
@@ -206,12 +217,67 @@ label {
 /* form */
 @media only screen and (min-width: 800px) {
   .createform {
+    max-width: 1000px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 4vw;
+    margin: 0 auto;
+    padding: 0 3vw;
   }
 }
 
 .contador {
   width: 3em;
+}
+
+/* update form */
+
+.updateform {
+  max-width: 1000px;
+  margin: 1vh auto 6vh;
+  padding: 0 3vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.updateform div {
+  margin-top: 10px;
+}
+
+.updateform button {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: fit-content;
+  padding: 5px 10px;
+}
+
+.boton {
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.botonactualizar {
+  background-color: rgb(140, 255, 255);
+}
+
+.botoneliminar {
+  background-color: rgb(255, 165, 165);
+}
+
+.botonanadir {
+  background-color: rgb(131, 255, 162);
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.botoncancelar {
+  background-color: rgb(255, 158, 158);
+}
+
+.botonguardar {
+  background-color: rgb(126, 255, 158);
+}
+
+.principalcrud {
+  width: 100%;
+  margin-bottom: 5vh;
 }

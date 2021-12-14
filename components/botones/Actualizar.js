@@ -6,7 +6,7 @@ function Actualizar(items) {
   return (
     <button
       type="button"
-      className="boton actualizar"
+      className="boton botonactualizar"
       onClick={() => set({ item })}
     >
       Actualizar

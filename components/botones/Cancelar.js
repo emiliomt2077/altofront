@@ -9,7 +9,7 @@ function Cancelar(setView) {
   return (
     <button
       type="button"
-      className="boton cancelar"
+      className="boton botoncancelar"
       onClick={() => ocultar(setView)}
     >
       Cancelar

@@ -47,7 +47,7 @@ function Create() {
   //   if (user.data.type) {
   return (
     <main>
-      <h1>Crear cuenta</h1>
+      <h1>Crear Ropa</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <div className="createform">
           {clotheDatos.inputs.map((input, key) => {

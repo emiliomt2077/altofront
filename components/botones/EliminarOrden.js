@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function EliminarOrden(objdata) {
   const { objkey } = objdata;
   const { data } = objdata;
+  const { set } = objdata;
 
   return (
     <button
+      className="boton botoneliminar"
       type="button"
       onClick={() => {
-        // products[item.reference] = item;
-        // quantities[item.reference] = cantidad;
-        console.log("eliminado");
-
+        set(true);
         delete data.products[objkey];
         delete data.quantities[objkey];
       }}
