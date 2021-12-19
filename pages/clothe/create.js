@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { clotheDatos } from "../../datos";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import * as yup from "yup";
-//import UserMessage from "../../components/userMessage";
+import { ClotheMessage } from "../../components/Messages";
 
 let schemaClothe = yup.object().shape({
   reference: yup.string().required(),
@@ -27,7 +27,7 @@ function Create() {
     resolver: yupResolver(schemaClothe),
   });
 
-  const [getResult, setGetResult] = useState(null);
+  const [getResult, setGetResult] = useState("true");
 
   async function onSubmit(newItem) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/clothe/new`, {
@@ -37,44 +37,70 @@ function Create() {
       },
       body: JSON.stringify(newItem),
     });
-    const userData = await response.json();
+
+    const userData = "";
+
+    try {
+      userData = await response.json();
+    } catch (err) {
+      userData = "fallido";
+    }
     const result = { data: userData };
-    console.log(result);
     setGetResult(result);
   }
 
-  // if (user)
-  //   if (user.data.type) {
-  return (
-    <main>
-      <h1>Crear Ropa</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
-        <div className="createform">
-          {clotheDatos.inputs.map((input, key) => {
-            return (
-              <div key={key} className="form-input">
-                <label>{input.label}</label>
-                <input
-                  name={input.name}
-                  type={input.type}
-                  {...register(`${input.name}`)}
-                />
-                <p className="errors">{errors[input.name]?.message}</p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="buttonLine">
-          <button className="crear" type="submit">
-            Crear
-          </button>
-        </div>
-      </form>
-      {/* <UserMessage sendData={getResult} /> */}
-    </main>
-  );
+  if (user)
+    if ((user.data.type = "ADMIN")) {
+      return (
+        <main>
+          <h1>Crear Ropa</h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="form">
+            <div className="createform">
+              {clotheDatos.inputs.map((input, key) => {
+                return (
+                  <div key={key} className="form-input">
+                    <label>{input.label}</label>
+                    <input
+                      list={input.name + key}
+                      id={input.name}
+                      name={input.name}
+                      type={input.type}
+                      {...register(`${input.name}`)}
+                    />
+
+                    {input.name == "availability" && (
+                      <datalist id={input.name + key}>
+                        <option value="true">Disponible</option>
+                        <option value="false">No Disp</option>
+                      </datalist>
+                    )}
+
+                    {input.name == "size" && (
+                      <datalist id={input.name + key}>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                      </datalist>
+                    )}
+
+                    <p className="errors">{errors[input.name]?.message}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="buttonLine">
+              <button className="crear" type="submit">
+                Crear
+              </button>
+            </div>
+          </form>
+          {getResult == "true" ? null : <ClotheMessage sendData={getResult} />}
+        </main>
+      );
+    }
+  return null;
 }
-//   return null;
-// }
 
 export default Create;

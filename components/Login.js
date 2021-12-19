@@ -3,7 +3,7 @@ import { DataContext } from "./DataContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import * as yup from "yup";
-//import LoginMessage from "../components/loginMessage";
+import { MessagesLogin } from "./Messages";
 
 let schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -28,9 +28,12 @@ function Login() {
     );
     const userData = await response.json();
     const result = { data: userData };
-    console.log(result);
+
+    if (userData.id) {
+      setUser(result);
+    }
+
     setGetResult(result);
-    setUser(result);
   }
 
   return (
@@ -56,7 +59,7 @@ function Login() {
           </button>
         </div>
       </form>
-      {/* <LoginMessage sendData={getResult} /> */}
+      <MessagesLogin sendData={getResult} />
     </section>
   );
 }

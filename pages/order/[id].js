@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
+
 import { clotheDatos } from "../../datos/index";
 import GuardarEstado from "../../components/botones/GuardarEstado";
 
-async function getList(id) {
+async function getServerSideProps(id) {
   if (id) {
     return await fetch(`${process.env.NEXT_PUBLIC_HOST}/order/${id}`).then(
       (data) => data.json().then({ data })
@@ -21,7 +22,7 @@ function OrderDetails() {
 
   useEffect(() => {
     if (id) {
-      getList(id).then((data) => {
+      getServerSideProps(id).then((data) => {
         setOrder(data);
         setLista(data.products);
       });
@@ -52,6 +53,7 @@ function OrderDetails() {
               <td>{order.registerDay.slice(0, 10)}</td>
               <td>{order.id}</td>
               <td>{order.status}</td>
+
               <td>
                 <input
                   defaultValue={order.status}

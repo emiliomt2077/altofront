@@ -16,7 +16,12 @@ const Profile = () => {
                 <h3>{input.label}</h3>
               </div>
               <div key={key + 0.7}>
-                <p>{user.data[input.name]}</p>
+                {input.label == "Fecha de nacimiento" && (
+                  <p>{user.data[input.name].slice(0, 10)}</p>
+                )}
+                {input.label != "Fecha de nacimiento" && (
+                  <p>{user.data[input.name]}</p>
+                )}
               </div>
             </>
           );

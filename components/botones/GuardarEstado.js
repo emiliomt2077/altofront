@@ -1,8 +1,6 @@
 import React from "react";
 
 async function updateItem(data) {
-  console.log(data);
-
   await fetch(`${process.env.NEXT_PUBLIC_HOST}/order/update`, {
     method: "PUT",
     headers: {

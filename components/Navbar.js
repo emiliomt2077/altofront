@@ -31,24 +31,53 @@ const Navbar = () => {
                 <a>Lista ropa</a>
               </Link>
             </li>
+          </ul>
+        );
+      case "COORD":
+        return (
+          <ul className="navlinks">
             <li>
-              <Link href="/order/create">
-                <a>orden quitar</a>
+              <Link href="/order">
+                <a>Lista pedidos</a>
               </Link>
             </li>
             <li>
-              <Link href="/order">
-                <a>orden</a>
+              <Link href="/birthday">
+                <a>Cumpleaños</a>
               </Link>
             </li>
           </ul>
         );
-      case "COORD":
-        return <div>hola COORD</div>;
       case "ASE":
-        return <div>hola ASE</div>;
+        return (
+          <ul className="navlinks">
+            <li>
+              <Link href="/order/list">
+                <a>Lista pedidos</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/order/create">
+                <a>Nuevo pedido</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/birthday">
+                <a>Cumpleaños</a>
+              </Link>
+            </li>
+          </ul>
+        );
       default:
-        return null;
+        return (
+          <ul className="navlinks">
+            <li>
+              <Link href="/Clothe/all">
+                <a>Nuestros productos</a>
+              </Link>
+            </li>
+          </ul>
+        );
     }
   };
 
@@ -75,6 +104,16 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <h2 className="logo">AT</h2>
+
+      <div className="navbarsinlogin">
+        <ul className="navlinks">
+          <li>
+            <Link href="/clothe/all">
+              <a>Productos</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

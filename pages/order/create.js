@@ -24,25 +24,25 @@ function ClotheCRUD() {
     }, 800);
   }, [recargarTabla]);
 
-  // if (user)
-  //   if (user.data.type) {
-  return (
-    <div className="principalcrud">
-      {recargarTabla && <h2>cargando...</h2>}
-      {recargarTabla == false && (
-        <TableOrder
-          lista={list}
-          titulos={clotheDatos}
-          tipo="orden ropa"
-          // settable={setRecargarTabla}
-          // endpoint="clothe"
-          // deletename="reference"
-        />
-      )}
-    </div>
-  );
-  //  }
-  //return null;
+  if (user)
+    if ((user.data.type = "ASE")) {
+      return (
+        <div className="principalcrud">
+          {recargarTabla && <h2>cargando...</h2>}
+          {recargarTabla == false && (
+            <TableOrder
+              lista={list}
+              titulos={clotheDatos}
+              tipo="orden ropa"
+              // settable={setRecargarTabla}
+              // endpoint="clothe"
+              // deletename="reference"
+            />
+          )}
+        </div>
+      );
+    }
+  return null;
 }
 
 export default ClotheCRUD;

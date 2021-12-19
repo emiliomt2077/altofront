@@ -1,7 +1,6 @@
 import React from "react";
 
 async function updateOrder(order) {
-  console.log(order);
   await fetch(`${process.env.NEXT_PUBLIC_HOST}/order/new`, {
     method: "POST",
     headers: {
@@ -14,6 +13,8 @@ async function updateOrder(order) {
 function CrearOrden(data) {
   const { order } = data;
   const d = new Date();
+  const dateMinutes = d.getTime();
+
   return (
     <div className="buttonLine">
       <button
@@ -21,6 +22,9 @@ function CrearOrden(data) {
         type="submit"
         onClick={() => {
           order.registerDay = d.toISOString();
+          order.id = dateMinutes.toString().slice(-7);
+          console.log(order.id);
+          console.log(dateMinutes);
           updateOrder(order);
         }}
       >

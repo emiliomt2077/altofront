@@ -83,7 +83,7 @@ export const userDatos = {
       type: "text",
     },
     {
-      label: "Dirreccion",
+      label: "Direccion",
       name: "address",
       type: "text",
     },
@@ -101,6 +101,41 @@ export const userDatos = {
       label: "Contraseña",
       name: "password",
       type: "password",
+    },
+    {
+      label: "Zona",
+      name: "zone",
+      type: "text",
+    },
+    {
+      label: "Tipo de usuario",
+      name: "type",
+      type: "text",
+    },
+  ],
+};
+
+export const userBirthday = {
+  inputs: [
+    {
+      label: "Nombre",
+      name: "name",
+      type: "text",
+    },
+    {
+      label: "Fecha de nacimiento",
+      name: "birthtDay",
+      type: "text",
+    },
+    {
+      label: "# Celular",
+      name: "cellPhone",
+      type: "text",
+    },
+    {
+      label: "Email",
+      name: "email",
+      type: "email",
     },
     {
       label: "Zona",

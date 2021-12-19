@@ -5,7 +5,7 @@ import EliminarOrden from "./botones/EliminarOrden";
 import { DataContext } from "./DataContext";
 
 const dataOrder = {
-  id: 11,
+  id: 112,
   registerDay: null,
   status: "Pendiente",
   salesMan: null,
